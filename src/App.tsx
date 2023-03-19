@@ -19,12 +19,13 @@ const f6 = [7, 8, 9, 10, 11, 12]
 
 const allCase = [...f1, ...f2, ...f3, ...f4, ...f5, ...f6,]
 
-const LOOP = 20
+const LOOP = 100
 const LEN = LOOP * allCase.length
 const results: number[] = []
 for (let i = 0; i < LOOP; i++) {
-  results.push(...shuffle(allCase))
+  results.push(...allCase)
 }
+shuffle(results)
 
 const statistic: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 for (let i = 0; i < LEN; i++) {
@@ -61,9 +62,13 @@ function App() {
   return (
     <div className="App"
          style={{
+           display: "flex",
+           justifyContent: "center",
+           flexDirection: 'column',
+           alignItems: "center",
            padding: '30px',
            height: "100vh",
-           background: "#001b60"
+           background: "#001b60",
          }}
          onClick={handleClick}>
       <div style={{ color: "wheat" }}>{`${index} / ${LEN} 회`}</div>
